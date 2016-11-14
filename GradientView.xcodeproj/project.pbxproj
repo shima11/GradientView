@@ -15,6 +15,7 @@
 		D4A0CD831DD9E46C0065EC45 /* GradientViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0CD821DD9E46C0065EC45 /* GradientViewTests.swift */; };
 		D4A0CD8E1DD9E46C0065EC45 /* GradientViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0CD8D1DD9E46C0065EC45 /* GradientViewUITests.swift */; };
 		D4A0CD9C1DD9E5FB0065EC45 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0CD9B1DD9E5FB0065EC45 /* GradientView.swift */; };
+		D4A0CD9E1DD9EAC00065EC45 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0CD9D1DD9EAC00065EC45 /* map.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D4A0CD8D1DD9E46C0065EC45 /* GradientViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewUITests.swift; sourceTree = "<group>"; };
 		D4A0CD8F1DD9E46C0065EC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A0CD9B1DD9E5FB0065EC45 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		D4A0CD9D1DD9EAC00065EC45 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = resouce/map.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D4A0CD741DD9E46C0065EC45 /* Assets.xcassets */,
 				D4A0CD761DD9E46C0065EC45 /* LaunchScreen.storyboard */,
 				D4A0CD791DD9E46C0065EC45 /* Info.plist */,
+				D4A0CD9D1DD9EAC00065EC45 /* map.png */,
 			);
 			path = GradientView;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A0CD9E1DD9EAC00065EC45 /* map.png in Resources */,
 				D4A0CD781DD9E46C0065EC45 /* LaunchScreen.storyboard in Resources */,
 				D4A0CD751DD9E46C0065EC45 /* Assets.xcassets in Resources */,
 				D4A0CD731DD9E46C0065EC45 /* Main.storyboard in Resources */,
