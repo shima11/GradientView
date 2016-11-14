@@ -8,9 +8,47 @@
 
 import UIKit
 
+// グラデーションをかける方向
+enum Direction {
+    case vertical
+    case horizontal
+    case diagonalDown
+    case diagonalUp
+}
+
 class GradientView: UIView {
- 
-    init(view: UIView) {
+    
+    public var gradientColor: UIColor = UIColor.white {
+        didSet {
+            let midColor: UIColor = gradientColor.withAlphaComponent(0.7)
+            let endColor: UIColor = gradientColor.withAlphaComponent(0.0)
+            let gradientColors: [CGColor] = [gradientColor.cgColor, midColor.cgColor, endColor.cgColor]
+            gradientLayer.colors = gradientColors
+        }
+    }
+    
+    public var direction: Direction = .horizontal {
+        didSet {
+            switch direction {
+            case .horizontal:
+                gradientLayer.startPoint = CGPoint(x:0, y:0.5);
+                gradientLayer.endPoint = CGPoint(x:1.0, y:0.5);
+            case .vertical:
+                gradientLayer.startPoint = CGPoint(x:0.5, y:0);
+                gradientLayer.endPoint = CGPoint(x:0.5, y:1.0);
+            case .diagonalDown:
+                gradientLayer.startPoint = CGPoint(x:0, y:0.0);
+                gradientLayer.endPoint = CGPoint(x:1.0, y:1.0);
+            case .diagonalUp:
+                gradientLayer.startPoint = CGPoint(x:0, y:1.0);
+                gradientLayer.endPoint = CGPoint(x:1.0, y:0.0);
+            }
+        }
+    }
+    
+    private var gradientLayer: CAGradientLayer!
+
+    public init(view: UIView) {
         super.init(frame: view.frame)
         setup(view: view)
     }
@@ -19,23 +57,23 @@ class GradientView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(view: UIView) {
-        let topColor = UIColor.white // 開始色
-        let bottomColor = UIColor.white.withAlphaComponent(0.0) // 終了色
-        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
-        
+    private func setup(view: UIView) {
         //グラデーションレイヤーを作成
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x:0, y:0, width:view.frame.width, height:view.frame.height)
+        
+        // グラデーションの色の指定
+        let midColor: UIColor = gradientColor.withAlphaComponent(0.7)
+        let endColor: UIColor = gradientColor.withAlphaComponent(0.0)
+        let gradientColors: [CGColor] = [gradientColor.cgColor, midColor.cgColor, endColor.cgColor]
+        gradientLayer.colors = gradientColors
+        
+        // グラデーションのかかり具合
+        gradientLayer.locations = [0.0, 0.5, 0.8]
         
         // グラデーションの方向（横）
         gradientLayer.startPoint = CGPoint(x:0, y:0.5);
         gradientLayer.endPoint = CGPoint(x:1.0, y:0.5);
-        
-        //グラデーションの色をレイヤーに割り当てる
-        gradientLayer.colors = gradientColors
-        
-        gradientLayer.locations = [0.1, 0.6]
         
         //グラデーションレイヤーをビューに追加        
         view.layer.addSublayer(gradientLayer)

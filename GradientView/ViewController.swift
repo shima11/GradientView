@@ -14,24 +14,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         let gradientView = GradientView(view: imageView)
+//        gradientView.direction = .diagonalUp
+//        gradientView.gradientColor = UIColor.red
         self.view.addSubview(gradientView)
         
-        
-        print(imageView.frame)
-        print(gradientView.frame)
-        
-//        gradientView.backgroundColor = UIColor.red
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
